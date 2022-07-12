@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :menus
   devise_for :users, controllers: { registrations: "registrations" },
                      path: "",
                      path_names: { sign_in: "login",

@@ -11,7 +11,8 @@
   </head>
   <body>
     <main class="container">
-      <%= link_to "Restaurant", root_path %>
+      <%= link_to "Restaurant", root_path %>|
+      <%= link_to "Menu", menus_path %>|
       <% if user_signed_in? %>
         <%= current_user.name %>
         <strong><%= (current_user.role) %></strong>

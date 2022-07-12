@@ -6,7 +6,7 @@ class RegistrationsController < Devise::RegistrationsController
 
   def configure_permitted_parameters
     added_attrs = %i[ email password password_confirmation remember_me
-                      name bio category birthday role
+                      name bio category birthday
     ]
 
     devise_parameter_sanitizer.permit :sign_up, keys: added_attrs
