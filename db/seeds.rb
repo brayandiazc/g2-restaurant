@@ -16,3 +16,5 @@ CSV.foreach(Rails.root.join("db/seeds/csv/categories.csv"), headers: true) do |r
     category.available = row[2]
   end
 end
+
+# rails runner 'load(File.join(Rails.root, "db", "seeds", "rb", "users.rb"))'
