@@ -1,0 +1,2 @@
+class Saucer < ApplicationRecord
+end
