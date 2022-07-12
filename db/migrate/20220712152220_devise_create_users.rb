@@ -34,6 +34,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[7.0]
 
       t.string :name
       t.text :bio
+      t.references :category, foreign_key: true
       t.date :birthday
       t.integer :role, default: 0
 
