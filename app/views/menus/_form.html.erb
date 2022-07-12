@@ -35,6 +35,17 @@
         required: true,
         prompt: "--- Select a user ---" %>
   </div>
+  <div class="field">
+    <%= form.label :saucers %>
+    <%= form.collection_check_boxes(:saucer_ids,
+                                    Saucer.where(available: true),
+                                    :id,
+                                    :name) do |b| %>
+      <%= b.label class:"label-checkbox" do %>
+        <%= b.check_box + b.text %>
+      <%end%>
+    <% end %>
+  </div>
   <div>
     <%= form.label :status, style: "display: block" %>
     <%= form.select :status, Menu.statuses.keys.map { |w| [w.humanize, w] } %>

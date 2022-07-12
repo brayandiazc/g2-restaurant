@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_07_12_170811) do
+ActiveRecord::Schema[7.0].define(version: 2022_07_12_171225) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -19,6 +19,15 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_12_170811) do
     t.boolean "available", default: true
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "menu_saucers", force: :cascade do |t|
+    t.bigint "menu_id", null: false
+    t.bigint "saucer_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["menu_id"], name: "index_menu_saucers_on_menu_id"
+    t.index ["saucer_id"], name: "index_menu_saucers_on_saucer_id"
   end
 
   create_table "menus", force: :cascade do |t|
@@ -58,6 +67,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_12_170811) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "menu_saucers", "menus"
+  add_foreign_key "menu_saucers", "saucers"
   add_foreign_key "menus", "categories"
   add_foreign_key "menus", "users"
   add_foreign_key "users", "categories"
