@@ -17,4 +17,13 @@ CSV.foreach(Rails.root.join("db/seeds/csv/categories.csv"), headers: true) do |r
   end
 end
 
+puts "Importing saucers..."
+CSV.foreach(Rails.root.join("db/seeds/csv/saucers.csv"), headers: true) do |row|
+  Saucer.create! do |saucer|
+    saucer.id = row[0]
+    saucer.name = row[1]
+    saucer.available = row[2]
+  end
+end
+
 # rails runner 'load(File.join(Rails.root, "db", "seeds", "rb", "users.rb"))'

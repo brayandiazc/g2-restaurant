@@ -1,5 +1,9 @@
 <div id="<%= dom_id menu %>">
   <p>
+    <strong>Imagen</strong>
+    <%= image_tag menu.image %>
+  </p>
+  <p>
     <strong>Name:</strong>
     <%= menu.name %>
   </p>
@@ -14,6 +18,10 @@
   <p>
     <strong>User:</strong>
     <%= menu.user.name %>
+  </p>
+  <p>
+    <strong>Saucers:</strong>
+    <%= menu.saucers.map(&:name).sort.join(',') %>
   </p>
   <p>
     <strong>Status:</strong>

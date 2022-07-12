@@ -10,6 +10,10 @@
     </div>
   <% end %>
   <div>
+    <%= form.label :image, style: "display: block" %>
+    <%= form.file_field :image %>
+  </div>
+  <div>
     <%= form.label :name, style: "display: block" %>
     <%= form.text_field :name %>
   </div>
@@ -34,6 +38,17 @@
         :name,
         required: true,
         prompt: "--- Select a user ---" %>
+  </div>
+  <div class="field">
+    <%= form.label :saucers %>
+    <%= form.collection_check_boxes(:saucer_ids,
+                                    Saucer.where(available: true),
+                                    :id,
+                                    :name) do |b| %>
+      <%= b.label class:"label-checkbox" do %>
+        <%= b.check_box + b.text %>
+      <%end%>
+    <% end %>
   </div>
   <div>
     <%= form.label :status, style: "display: block" %>
