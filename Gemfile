@@ -46,7 +46,7 @@ gem "bootsnap", require: false
 # gem "sassc-rails"
 
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
-# gem "image_processing", "~> 1.2"
+gem "image_processing", "~> 1.2"
 
 # A library for generating fake data such as names, addresses, and phone numbers.
 gem 'faker'
