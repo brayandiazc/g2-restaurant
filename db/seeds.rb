@@ -6,9 +6,13 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 
-50.times do
-  Category.create(
-    name: Faker::Commerce.department,
-    available: true
-  )
+require "csv"
+
+puts "Importing categories..."
+CSV.foreach(Rails.root.join("db/seeds/csv/categories.csv"), headers: true) do |row|
+  Category.create! do |category|
+    category.id = row[0]
+    category.name = row[1]
+    category.available = row[2]
+  end
 end
